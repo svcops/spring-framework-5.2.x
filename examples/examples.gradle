@@ -1,0 +1,17 @@
+description = "examples"
+
+apply plugin: "java"
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation(project(":debug-logger"))
+    implementation(project(":spring-context"))
+
+    compileOnly('org.projectlombok:lombok:1.18.32')
+    annotationProcessor('org.projectlombok:lombok:1.18.32')
+}

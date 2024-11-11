@@ -1,0 +1,17 @@
+description = "debug-logger"
+
+apply plugin: "java-library"
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public' }
+}
+
+dependencies {
+    api 'ch.qos.logback:logback-classic:1.2.11'
+}
