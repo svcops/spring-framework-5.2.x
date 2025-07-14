@@ -11,6 +11,8 @@ configurations {
 dependencies {
     implementation(project(":debug-logger"))
     implementation(project(":spring-context"))
+    implementation 'org.aspectj:aspectjweaver:1.9.7'
+    implementation 'org.aspectj:aspectjrt:1.9.7'
 
     compileOnly('org.projectlombok:lombok:1.18.32')
     annotationProcessor('org.projectlombok:lombok:1.18.32')

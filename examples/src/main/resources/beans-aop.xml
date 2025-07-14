@@ -1,0 +1,30 @@
+<!-- beans-aop.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- Define your beans here -->
+	<bean id="exampleBean" class="io.intellij.examples.spring.xml.XmlExampleBean">
+		<property name="propertyName" value="propertyValue"/>
+	</bean>
+
+	<!-- 切面类 -->
+	<bean id="aspectExample" class="io.intellij.examples.spring.aop.AspectExample"/>
+
+	<!-- aop 配置，使用注入的切面 -->
+	<aop:config>
+		<aop:aspect ref="aspectExample">
+			<aop:pointcut id="myPointcut"
+						  expression="execution(* io.intellij.examples.spring.xml.XmlExampleBean.*(..))"/>
+			<aop:before method="beforeMethod" pointcut-ref="myPointcut"/>
+			<aop:after-returning method="afterMethod" pointcut-ref="myPointcut"/>
+			<!-- 你也可以配置 around、after-throwing 等其它通知 -->
+		</aop:aspect>
+	</aop:config>
+
+</beans>

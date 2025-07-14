@@ -12,4 +12,9 @@ import lombok.ToString;
 @Data
 public class XmlExampleBean {
 	private String propertyName;
+
+	public void sayHello() {
+		System.out.println("Hello from XmlExampleBean!");
+	}
+
 }
